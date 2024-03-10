@@ -74,6 +74,13 @@ CREATE TABLE episode_schedules (
     FOREIGN KEY (schedule_id) REFERENCES schedules(schedule_id)
 );
 
+#文字コードを指定
+ALTER TABLE channels CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE programs CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE genres CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE episodes CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+
 #サンプル値の入力
 -- channelsテーブルにサンプル値を挿入
 INSERT INTO channels (channel_id, channel_name) VALUES
@@ -149,7 +156,7 @@ INSERT INTO episodes (episode_id, title, detail, video_time, release_date, numbe
 (10, '第2024話', '家族旅行に行く', '00:30:00', '2024-03-19', 800000, 12, 2024);
 
 -- program_episodesテーブルにサンプル値を挿入
-INSERT INTO program_epidodes (program_id, episode_id) VALUES
+INSERT INTO program_episodes (program_id, episode_id) VALUES
 (1, 4),
 (2, 1),
 (2, 2),
